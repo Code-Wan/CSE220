@@ -1,5 +1,42 @@
 public class AssgnTask1 {
     public static Integer rowRotation(Integer examWeek, String[][] matrix) {
+        int i = 0;
+        int j = matrix.length - 1;
+        while (i < j) {
+            String[] temp = matrix[i];
+            matrix[i] = matrix[j];
+            matrix[j] = temp;
+            i++;
+            j--;
+        }
+        i = 0;
+        j = (examWeek % matrix.length - 1);
+        while (i < j) {
+            String[] temp = matrix[i];
+            matrix[i] = matrix[j];
+            matrix[j] = temp;
+            i++;
+            j--;
+        }
+        i = (examWeek % matrix.length + 1);
+        j = matrix.length - 1;
+        while (i < j) {
+            String[] temp = matrix[i];
+            matrix[i] = matrix[j];
+            matrix[j] = temp;
+            i++;
+            j--;
+        }
+
+        for (int k = 0; k < matrix.length; k++) {
+            for (int y = 0; y < matrix[0].length; y++) {
+                if (matrix[k][y].equals("AA")) {
+                    return k;
+                }
+
+            }
+
+        }
 
         // For this task you don't need to create new Matrix
         // You can create 1D array if you need (but you can do it without creating any
